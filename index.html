@@ -4,31 +4,36 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>Document</title>
 </head>
 <body>
-  <div id="list">
+  <div class="container mx-auto">
+    <div class="flex justify-center p-4">
+      <button class="px-4 py-2 bg-blue-400 rounded-md" onclick="getLocations()">Get Nearest Fixer</button>
+    </div>
+    <div id="list">
 
+    </div>
   </div>
   <script>
 
-    const errorCallback = (error) => {
-      console.log(error);
-    };
-  
     const successCallback = (position) => {
       const latLong = {
         lat: position.coords.latitude,
         long: position.coords.longitude
       }
       const data = getNearestLocation(latLong);
+      document.getElementById("list").innerHTML = '';
       data.forEach((loc, i) => {
-        const node = document.createElement("li");
+        const node = document.createElement("div");
+        // node.classList = 'bg-red-400'
         const linkNode = document.createElement('a');
         linkNode.href = `https://www.google.com/maps/place/${loc.lat},${loc.long}`
         linkNode.target = 'blank'
-        const textNode = document.createTextNode(`${i + 1} - ${loc.lat},${loc.long}`)
+        const textNode = document.createTextNode(`${i + 1} - ${loc.lat},${loc.long} Open In Map`)
         linkNode.appendChild(textNode);
+        linkNode.classList = 'p-4 block font-bold'
         node.appendChild(linkNode);
         document.getElementById("list").appendChild(node);
       })
@@ -74,7 +79,6 @@
 
       return nearestLocations;
     }
-    getLocations();
   </script>
 </body>
 </html>
