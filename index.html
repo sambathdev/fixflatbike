@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="list">
+
+  </div>
+  <script>
+
+    const errorCallback = (error) => {
+      console.log(error);
+    };
+  
+    const successCallback = (position) => {
+      const latLong = {
+        lat: position.coords.latitude,
+        long: position.coords.longitude
+      }
+      const data = getNearestLocation(latLong);
+      data.forEach((loc, i) => {
+        const node = document.createElement("li");
+        const linkNode = document.createElement('a');
+        linkNode.href = `https://www.google.com/maps/place/${loc.lat},${loc.long}`
+        linkNode.target = 'blank'
+        const textNode = document.createTextNode(`${i + 1} - ${loc.lat},${loc.long}`)
+        linkNode.appendChild(textNode);
+        node.appendChild(linkNode);
+        document.getElementById("list").appendChild(node);
+      })
+    };
+  
+    const getLocations = async () => {
+      await navigator.geolocation.getCurrentPosition(successCallback);
+    }
+    const calculate = (a, b) => {
+      return Math.pow(Math.pow((b.lat - a.lat),2) + Math.pow((b.long - a.long), 2), 0.5)
+    }
+    const getNearestLocation = (currentLocation) => {
+      const locations = [
+        { // aeon 2
+          lat: 11.599799, 
+          long: 104.884856
+        },
+        { // eden garden
+          lat: 11.577597,
+          long: 104.910091
+        },
+        { // paragon
+          lat: 11.582596,
+          long: 104.897784
+        },
+      ]
+      const distances = []
+      locations.forEach(loc => {
+        const dis = calculate(loc, currentLocation);
+        distances.push(dis)
+      })
+
+      const nearestLocations = [];
+
+      [0, 1].forEach(num => {
+        const min = Math.min(...distances);
+        console.log(min)
+        const index = distances.indexOf(min);
+        nearestLocations.push(locations[index])
+        locations.splice(index, 1)
+        distances.splice(index, 1)
+      })
+
+      return nearestLocations;
+    }
+    getLocations();
+  </script>
+</body>
+</html>
