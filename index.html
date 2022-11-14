@@ -9,10 +9,10 @@
 </head>
 <body>
   <div class="container mx-auto">
-    <div class="flex justify-center p-4">
+    <div class="flex justify-center p-8">
       <button class="px-4 py-2 bg-blue-400 rounded-md" onclick="getLocations()">Get Nearest Fixer</button>
     </div>
-    <div id="list">
+    <div id="list" class="flex flex-col">
 
     </div>
   </div>
@@ -27,14 +27,19 @@
       document.getElementById("list").innerHTML = '';
       data.forEach((loc, i) => {
         const node = document.createElement("div");
-        // node.classList = 'bg-red-400'
         const linkNode = document.createElement('a');
         linkNode.href = `https://www.google.com/maps/place/${loc.lat},${loc.long}`
         linkNode.target = 'blank'
         const textNode = document.createTextNode(`${i + 1} - ${loc.lat},${loc.long} Open In Map`)
         linkNode.appendChild(textNode);
-        linkNode.classList = 'p-4 block font-bold'
+        linkNode.classList = 'pt-8 block font-bold'
+
+        const desNode= document.createElement('p')
+        desNode.innerHTML = loc.description;
+        desNode.classList = 'text-slate-500'
         node.appendChild(linkNode);
+        node.appendChild(desNode)
+
         document.getElementById("list").appendChild(node);
       })
     };
@@ -49,15 +54,18 @@
       const locations = [
         { // aeon 2
           lat: 11.599799, 
-          long: 104.884856
+          long: 104.884856,
+          description: "hehe"
         },
         { // eden garden
           lat: 11.577597,
-          long: 104.910091
+          long: 104.910091,
+          description: "wow"
         },
         { // paragon
           lat: 11.582596,
-          long: 104.897784
+          long: 104.897784,
+          description: "keke"
         },
       ]
       const distances = []
