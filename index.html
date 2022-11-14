@@ -30,15 +30,16 @@
         const linkNode = document.createElement('a');
         linkNode.href = `https://www.google.com/maps/place/${loc.lat},${loc.long}`
         linkNode.target = 'blank'
-        const textNode = document.createTextNode(`${i + 1} - ${loc.lat},${loc.long} Open In Map`)
+        const textNode = document.createTextNode(`Open In Map`)
         linkNode.appendChild(textNode);
         linkNode.classList = 'pt-8 block font-bold'
 
         const desNode= document.createElement('p')
-        desNode.innerHTML = loc.description;
+        desNode.innerHTML = `${i + 1} - ${loc.lat},${loc.long} - ${loc.description}`;
         desNode.classList = 'text-slate-500'
         node.appendChild(linkNode);
         node.appendChild(desNode)
+        node.classList = 'px-2'
 
         document.getElementById("list").appendChild(node);
       })
