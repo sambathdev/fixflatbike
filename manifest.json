@@ -3,6 +3,7 @@
   "theme_color": "#6dcdb1",
   "description": "Shows random fox pictures. Hey, at least it isn't cats.",
   "display": "fullscreen",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "fixflatbike/img/icons/icon-72x72.png",
