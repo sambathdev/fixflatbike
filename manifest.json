@@ -1,8 +1,8 @@
 {
   "name": "FixFlatBike",
   "short_name": "FixFlatBike",
-  "start_url": "/index.html",
-  "display": "standalone",
+  "start_url": "/fixflatbike",
+  "display": "fullscreen",
   "background_color": "#FFE9D2",
   "theme_color": "#FFE1C4",
   "orientation": "portrait-primary",
