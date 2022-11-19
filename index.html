@@ -10,7 +10,7 @@
 <body>
   <div class="container mx-auto">
     <div class="flex justify-center p-8">
-      <button class="px-4 py-2 bg-blue-400 rounded-md" onclick="getLocations()">Get Nearest Flat Tire Fixer</button>
+      <button class="px-4 py-2 bg-blue-400 rounded-md" onclick="getLocations()">Find Nearest Flat Tire Fixer</button>
     </div>
     <div id="list" class="flex flex-col">
 
@@ -18,7 +18,7 @@
   </div>
   <script>
     if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('/sw.js')
+      navigator.serviceWorker.register('./sw.js')
         .then(reg => console.log('service worker registered'))
         .catch(err => console.log('service worker not registered', err));
     }
