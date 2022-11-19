@@ -1,6 +1,9 @@
 {
   "background_color": "purple",
   "theme_color": "#6dcdb1",
+  "name": "Awesome fox pictures",
+  "short_name": "Foxes",
+  "start_url": "/fixflatbike/index.html",
   "description": "Shows random fox pictures. Hey, at least it isn't cats.",
   "display": "fullscreen",
   "orientation": "portrait-primary",
@@ -45,8 +48,5 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "name": "Awesome fox pictures",
-  "short_name": "Foxes",
-  "start_url": "/fixflatbike"
+  ]
 }
