@@ -1,16 +1,15 @@
 {
-  "name": "FixFlatBike",
-  "short_name": "FixFlatBike",
-  "start_url": "/fixflatbike",
+  "background_color": "purple",
+  "description": "Shows random fox pictures. Hey, at least it isn't cats.",
   "display": "fullscreen",
-  "background_color": "#FFE9D2",
-  "theme_color": "#FFE1C4",
-  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "./img/icons/icon-128x128.png",
-      "type": "image/png",
-      "sizes": "128x128"
+      "src": "fixflatbike/img/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
     }
-  ]
+  ],
+  "name": "Awesome fox pictures",
+  "short_name": "Foxes",
+  "start_url": "/fixflatbike"
 }
