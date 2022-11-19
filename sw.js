@@ -2,7 +2,7 @@ const staticCacheName = 'site-static-v2';
 const dynamicCacheName = 'site-dynamic-v1';
 const assets = [
   '/',
-  '/index.html',
+  '/fixflatbike',
 ];
 
 // install event
